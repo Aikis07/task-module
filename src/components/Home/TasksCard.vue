@@ -40,7 +40,7 @@
       </div>
     </div>
     <div
-      @click="$router.push({ path: `/tasks/${task.course}` })"
+      @click="$router.push({ path: `/tasks/${task.course}/${task.id}` })"
       class="task-card__arrow bg-zinc-800 w-16 h-16 flex items-center justify-center rounded-xl cursor-pointer"
     >
       <arrow-right />

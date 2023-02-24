@@ -1,6 +1,6 @@
 <template>
     <div class="left">
-        <div class="wrapper bg-light-grey text-white py-9 w-647 w-" :class="{ 'w-36': isMinimal }">
+        <div class="wrapper bg-light-grey text-white py-9 w-647" :class="{ 'w-36': isMinimal }">
             <div v-if="isMinimal" class="header flex items-center justify-center border-b pb-9 border-zinc-800 px-9">
                 <div @click="isMinimal = false" class="header__wrapper flex justify-center items-center cursor-pointer">
                     <h2 class="header__text text-4xl">Т</h2>

@@ -5,11 +5,15 @@ module.exports = {
     extend: {
       spacing: {
         '647': '647px',
+        '1146': '1146px',
+        '542': '542px',
       },
       colors: {
         'light-grey': '#151515',
         'light-greyBtn': '#f5f5f5',
         'bg-main': '#101010',
+        primary: "#171717",
+        success: "#B4E681",
       }
     },
   },

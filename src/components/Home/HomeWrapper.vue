@@ -4,9 +4,9 @@
             @resetCourses="course = $event" @resetComplexitys="complexity = $event" />
         <div class="home right bg-bg-main w-full text-white">
             <div class="home__wrapper mx-16 my-11 flex flex-col">
-                <div class="home-header flex items-center">
+                <div class="home-header flex items-center gap-4">
                     <h2 class="home-header__title text-2xl">Задания для выполнения</h2>
-                    <p class="home-header__subtitle opacity-30 bg-zinc-700 rounded-3xl px-3 py-1 ml-5">Решенные задачи</p>
+                    <base-button size="sm" rounded="full" theme="primary">Решенные задачи</base-button>
                 </div>
                 <tasks-list :tasksList="getCourseList" />
             </div>
@@ -18,11 +18,13 @@
 import TasksList from '@/components/Home/TasksList.vue';
 import BaseDrawler from '@/components/Home/BaseDrawler.vue'
 import { mapGetters, mapState } from 'vuex';
+import BaseButton from '@/components/UI/BaseButton.vue'
 
 export default {
     components: {
         TasksList,
         BaseDrawler,
+        BaseButton,
     },
     data() {
         return {
