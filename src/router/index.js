@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import HomeTask from '@/views/HomeTask.vue'
+import TasksView from '@/views/tasks/TasksId.vue'
 
 Vue.use(VueRouter)
 
@@ -13,10 +13,9 @@ const routes = [
     props: true,
   },
   {
-    path: '/task:course-name',
+    path: '/tasks/:course/:task',
     name: 'task',
-    component: HomeTask,
-    props: true,
+    component: TasksView,
   }
 ]
 
