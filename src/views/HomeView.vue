@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="main flex flex-col">
+        <!-- header import -->
+        <div class="inner flex">
+            <base-drawler />
+            <home-wrapper />
+        </div>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import BaseDrawler from '@/components/Home/BaseDrawler.vue';
+import HomeWrapper from '@/components/Home/HomeWrapper.vue';
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        components: {
+            BaseDrawler,
+            HomeWrapper,
+        },
+    }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
