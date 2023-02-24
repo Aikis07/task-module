@@ -1,11 +1,11 @@
 <template>
   <div v-if="isMinimal" class="complexity__icons flex flex-wrap justify-center items-center px-3 ml-1">
-    <exp-star v-for="star in stars" :key="star"
-      :class="[star <= stars ? getColorWithEvent(event) : ['fill-white', 'opacity-20']]" />
+    <exp-star v-for="star in getStarsCount(event)" :key="star"
+      :class="[star <= getStarsCount(event) ? getColorWithEvent(event) : ['fill-white', 'opacity-20']]" />
   </div>
   <div v-else class="complexity__icons flex gap-1">
     <exp-star v-for="star in 5" :key="star"
-      :class="[star <= stars ? getColorWithEvent(event) : ['fill-white', 'opacity-20']]" />
+      :class="[star <= getStarsCount(event) ? getColorWithEvent(event) : ['fill-white', 'opacity-20']]" />
   </div>
 </template>
 
@@ -16,9 +16,6 @@ export default {
     ExpStar,
   },
   props: {
-    stars: {
-      type: Number,
-    },
     isMinimal: {
       type: Boolean,
     },
@@ -33,7 +30,7 @@ export default {
         case 'basic': {
           return 'fill-green-400'
         }
-        case 'easy': {
+        case 'basic+': {
           return 'fill-green-400'
         }
         case 'middle': {
@@ -47,8 +44,24 @@ export default {
         }
       }
     },
-    test() {
-      console.log(this.event)
+    getStarsCount(event) {
+      switch (event) {
+        case 'basic': {
+          return 1
+        }
+        case 'basic+': {
+          return 2
+        }
+        case 'middle': {
+          return 3
+        }
+        case 'advanced': {
+          return 4
+        }
+        case 'expert': {
+          return 5
+        }
+      }
     }
   },
 };
