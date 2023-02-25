@@ -84,6 +84,11 @@
                     </div>
                 </transition>
             </div>
+            <div class="author mt-4 px-9 opacity-40">
+                <a href="https://t.me/DanilaRuss">
+                    <h2 class="author__name">Модуль разработал - Данила Барков</h2>
+                </a>
+            </div>
         </div>
     </div>
 </template>
