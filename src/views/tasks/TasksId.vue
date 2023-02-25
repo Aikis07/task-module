@@ -20,44 +20,29 @@
         <div class="actions flex justify-between mt-20">
             <div class="actions__left flex gap-3">
                 <base-button size="md" rounded="lg" theme="success">Завершить задачу</base-button>
-                <base-button @click="isShowModal = true" size="md" rounded="lg" theme="primary">Посмотреть решение</base-button>
+                <base-button @click="isShowModal = true" size="md" rounded="lg" theme="primary">Посмотреть
+                    решение</base-button>
             </div>
             <base-button size="md" rounded="lg" theme="primary">Сохранить и выйти</base-button>
         </div>
-        <div v-show="isShowModal === true" class="solution absolute bg-zinc-800 p-8 rounded-3xl w-96 self-center">
-            <div class="solution__title flex items-center justify-between">
-                <div class="solution__inner flex items-center gap-4">
-                    <info-icon />
-                    <h2 class="solution__name">Решение задачи</h2>
-                </div>
-                <close-cross @click="isShowModal = false" class="solution__close cursor-pointer"/>
-            </div>
-            <h2 class="solution__info opacity-50 mt-7">Равным образом, перспективное планирование однозначно определяет
-                каждого участника как способного принимать
-                собственные решения касаемо как самодостаточных, так и внешне зависимых концептуальных решений.
-                Разнообразный и богатый опыт говорит нам, что сложившаяся структура организации способствует повышению
-                качества системы.</h2>
-            <div class="solution__actions flex flex-col mt-7 gap-5 items-center">
-                <base-button @click="isShowModal = false" size="full" rounded="lg" theme="primary" outline>Ок, ясно</base-button>
-                <p class="solution__error cursor-pointer opacity-30">Нашли ошибку?</p>
-            </div>
-        </div>
+        
+        <base-modal v-show="isShowModal === true" class="modal absolute" @closeModal="isShowModal = $event" @success="isShowModal = $event">
+
+        </base-modal>
     </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 import arrowLeft from '@/assets/img/arrow-left.svg'
+import BaseModal from '@/components/Home/BaseModal.vue'
 import BaseButton from '@/components/UI/BaseButton.vue'
-import infoIcon from '@/assets/img/info-icon.svg'
-import CloseCross from '@/assets/img/close-cross.svg';
 
 export default {
     components: {
         arrowLeft,
+        BaseModal,
         BaseButton,
-        infoIcon,
-        CloseCross,
     },
     data() {
         return {

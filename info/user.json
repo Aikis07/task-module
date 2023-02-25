@@ -1,0 +1,25 @@
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbmV4eUBtYWlsLnJ1IiwiaWQiOjEsImlhdCI6MTY3NzA4NDQ1MSwiZXhwIjoxNjc3MTcwODUxfQ.H-Y55IDNyBbJPSNGzUucQg1PbQqRzTAEQtyy8aeDL1k",
+    "account": {
+        "id": 1,
+        "name": "Александр Блок",
+        "password": "$2a$05$I6LCXaa1/NozRL88BaBezeM/pq45bjlqlk3jU7wB5leNZsNcjXXC2",
+        "email": "henexy@mail.ru",
+        "phone": "79604402420",
+        "avatarPhoto": null,
+        "modules": [],
+        "subscribe": {
+            "lvl": 0,
+            "date": null
+        },
+        "notifications": [
+            "{\"id\":1,\"name\":\"Регистрация аккаунта\"}"
+        ],
+        "courses": [
+            1,
+            2
+        ],
+        "createdAt": "2023-02-22T10:07:30.225Z",
+        "updatedAt": "2023-02-22T10:19:55.319Z"
+    }
+}

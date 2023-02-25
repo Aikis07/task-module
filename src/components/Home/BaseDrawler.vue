@@ -15,23 +15,23 @@
                 <close-cross v-if="isMinimal === false" @click="onClickMiniMode()" class="close cursor-pointer" />
             </div>
             <div class="main flex flex-col py-12 px-9">
-                <div v-if="isMinimal" class="courses">
+                <div v-if="isMinimal" class="courses flex flex-col gap-4">
                     <div class="courses__header flex items-center justify-center">
                         <h2 class="courses__title text-2xl">Курс</h2>
                     </div>
-                    <div v-for="course in courses" :key="course.id" class="courses__list mt-6 flex flex-col gap-4">
+                    <div v-for="course in courses" :key="course.id" class="courses__list flex flex-col gap-4">
                         <div @click="onClickCourse(course.event), selectedCours = course.language" :class="{ 'outline outline-1 outline-orange-300 rounded-2xl': selectedCours === course.language }"
                             class="coureses__item bg-zinc-800 rounded-2xl cursor-pointer flex justify-center items-center h-20 w-20">
                             <h2 class="coureses__title py-6 text-lg opacity-30 break-words">{{ course.language }}</h2>
                         </div>
                     </div>
                 </div>
-                <div v-else class="courses">
+                <div v-else class="courses flex flex-col gap-4">
                     <div class="courses__header flex items-center justify-between">
                         <h2 class="courses__title text-2xl">Выберите курс</h2>
                         <p @click="onClickResetCourses()" class="courses__reset opacity-20 cursor-pointer">сбросить всё</p>
                     </div>
-                    <div v-for="course in courses" :key="course.id" class="courses__list mt-6 flex flex-col gap-4">
+                    <div v-for="course in courses" :key="course.id" class="courses__list flex flex-col">
                         <div @click="onClickCourse(course.event), selectedCours = course.language"
                             class="coureses__item bg-zinc-800 rounded-2xl cursor-pointer h-20 flex items-center"
                             :class="{ 'outline outline-1 outline-orange-300 rounded-2xl': selectedCours === course.language }">
