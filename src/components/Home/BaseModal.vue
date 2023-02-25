@@ -14,7 +14,7 @@
                 Разнообразный и богатый опыт говорит нам, что сложившаяся структура организации способствует повышению
                 качества системы.</h2>
             <div class="solution__actions flex flex-col mt-7 gap-5 items-center">
-                <base-button @click="onClickSuccess()" size="full" rounded="lg" theme="primary" outline>Ок,
+                <base-button @click="onClickSuccess()" size="lg" rounded="lg" theme="primary" outline>Ок,
                     ясно</base-button>
                 <p class="solution__error cursor-pointer opacity-30">Нашли ошибку?</p>
             </div>

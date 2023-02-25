@@ -25,10 +25,12 @@
             </div>
             <base-button size="md" rounded="lg" theme="primary">Сохранить и выйти</base-button>
         </div>
-        
-        <base-modal v-show="isShowModal === true" class="modal absolute" @closeModal="isShowModal = $event" @success="isShowModal = $event">
+        <transition name="slide-fade">
+            <base-modal v-show="isShowModal === true" class="modal absolute" @closeModal="isShowModal = $event"
+                @success="isShowModal = $event">
 
-        </base-modal>
+            </base-modal>
+        </transition>
     </div>
 </template>
 
@@ -58,4 +60,16 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.slide-fade-enter-active {
+    transition: all .3s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active до версии 2.1.8 */ {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+</style>
