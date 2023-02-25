@@ -1,6 +1,6 @@
 <template>
     <div class="left">
-        <div class="wrapper bg-light-grey text-white py-9 w-647" :class="{ 'w-40': isMinimal }">
+        <div class="wrapper bg-light-grey text-white py-9 w-647" :class="{ 'w-135': isMinimal }">
             <transition name="fade" mode="out-in">
                 <div v-if="isMinimal" class="header flex items-center justify-center border-b pb-9 border-zinc-800 px-9">
                     <div @click="isMinimal = false" class="header__wrapper flex justify-center items-center cursor-pointer">
@@ -16,7 +16,7 @@
                     <close-cross v-if="isMinimal === false" @click="isMinimal = true" class="close cursor-pointer" />
                 </div>
             </transition>
-            <div class="main flex flex-col py-12 px-9">
+            <div class="main flex flex-col py-12 px-7">
                 <transition name="fade" mode="out-in">
                     <div v-if="isMinimal" class="courses flex flex-col gap-4">
                         <div class="courses__header flex items-center justify-center">
@@ -83,6 +83,12 @@
                         </div>
                     </div>
                 </transition>
+            </div>
+            <div v-show="isMinimal === false" class="author mt-4 px-9 opacity-50 flex">
+                <h2 class="author__name">Тренажер разработал - </h2>
+                <a href="https://t.me/DanilaRuss">
+                    <h2 class="author__link text-orange-300 ml-1">Данила Барков</h2>
+                </a>
             </div>
         </div>
     </div>
