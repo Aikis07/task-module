@@ -26,7 +26,7 @@
                             <div @click="onClickCourse(course.event), selectedCours = course.language"
                                 :class="{ 'outline outline-1 outline-orange-300 rounded-2xl': selectedCours === course.language }"
                                 class="coureses__item bg-zinc-800 rounded-2xl cursor-pointer flex justify-center items-center h-20 w-20">
-                                <h2 class="coureses__title py-6 text-lg opacity-30 break-words">{{ course.language }}</h2>
+                                <h2 class="coureses__title py-6 text-lg opacity-30 break-words" :class="{'opacity-100': selectedCours === course.language}">{{ course.language }}</h2>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                             <div @click="onClickCourse(course.event), selectedCours = course.language"
                                 class="coureses__item bg-zinc-800 rounded-2xl cursor-pointer h-20 flex items-center"
                                 :class="{ 'outline outline-1 outline-orange-300 rounded-2xl': selectedCours === course.language }">
-                                <h2 class="coureses__title px-8 text-lg opacity-30">{{ course.name }}</h2>
+                                <h2 class="coureses__title px-8 text-lg opacity-30" :class="{'opacity-100': selectedCours === course.language}">{{ course.name }}</h2>
                             </div>
                         </div>
                     </div>
@@ -77,13 +77,12 @@
                                     <div class="complexity__icons flex ml-1">
                                         <base-rating :isMinimal="isMinimal" :event="type.event" />
                                     </div>
-                                    <h2 class="complexity__title text-lg opacity-30 ml-5">{{ type.title }}</h2>
+                                    <h2 class="complexity__title text-lg opacity-30 ml-5" :class="{'opacity-100': selectedComplexity === type.event}">{{ type.title }}</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </transition>
-
             </div>
         </div>
     </div>
