@@ -84,9 +84,10 @@
                     </div>
                 </transition>
             </div>
-            <div class="author mt-4 px-9 opacity-40">
+            <div class="author mt-4 px-9 opacity-50 flex">
+                <h2 class="author__name">Тренажер разработал - </h2>
                 <a href="https://t.me/DanilaRuss">
-                    <h2 class="author__name">Модуль разработал - Данила Барков</h2>
+                    <h2 class="author__link text-orange-300 ml-1">Данила Барков</h2>
                 </a>
             </div>
         </div>
