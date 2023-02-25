@@ -1,7 +1,8 @@
 <template>
     <div class="wrapper flex w-full">
-        <base-drawler :selected-complexity="complexity" :selected-course="course" @selectedLang="course = $event" @selectedComplexity="complexity = $event"
-            @resetCourses="course = $event" @resetComplexitys="complexity = $event" />
+        <base-drawler :selectedComplexity="complexity" :selectedCourse="course" @selectedLang="course = $event"
+            @selectedComplexity="complexity = $event" @resetCourses="course = $event"
+            @resetComplexitys="complexity = $event" />
         <div class="home right bg-bg-main w-full text-white">
             <div class="home__wrapper mx-16 my-11 flex flex-col">
                 <div class="home-header flex items-center gap-4">
@@ -52,4 +53,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

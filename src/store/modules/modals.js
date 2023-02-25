@@ -1,15 +1,11 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export default {
+    namespaced: true,
     state: {
-        modal: null;
+        modal: null,
     },
     mutations: {
         setModal(state, payload) {
-            state.modal = true;
+            state.modal = payload
         },
         removeModal(state) {
             state.modal = null;
@@ -19,4 +15,4 @@ export default new Vuex.Store({
     },
     modules: {
     }
-})
+}

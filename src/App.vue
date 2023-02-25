@@ -1,5 +1,5 @@
 <template>
-  <div id="app bg-bg-main">
+  <div id="app" class="bg-main">
     <router-view />
     <modals-controller />
   </div>
@@ -14,4 +14,6 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+
+</style>

@@ -8,11 +8,11 @@ module.exports = {
         '1146': '1146px',
         '542': '542px',
         '135': '135px',
+        '-50%': '-50%'
       },
       colors: {
         'light-grey': '#151515',
-        'light-greyBtn': '#f5f5f5',
-        'bg-main': '#101010',
+        'main': '#101010',
         primary: "#171717",
         success: "#B4E681",
       }
