@@ -5,8 +5,6 @@
             <h2 class="header__title ml-5 text-2xl">{{ getTask.name }}</h2>
         </div>
         <div class="textarea mt-6 flex gap-6">
-            <!-- <textarea class="textarea__input h-542 bg-light-grey p-5 outline-none resize-none w-full"
-                placeholder="Кодинг"></textarea> -->
             <CodeEditor width="100%" height="542px" border_radius="12px" v-model="code" />
             <div class="textarea__result bg-light-grey p-5 w-647 rounded-lg">Тест</div>
         </div>

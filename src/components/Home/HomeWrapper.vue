@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper flex w-full">
-        <base-drawler @selectedLang="course = $event" @selectedComplexity="complexity = $event"
+        <base-drawler :selected-complexity="complexity" :selected-course="course" @selectedLang="course = $event" @selectedComplexity="complexity = $event"
             @resetCourses="course = $event" @resetComplexitys="complexity = $event" />
         <div class="home right bg-bg-main w-full text-white">
             <div class="home__wrapper mx-16 my-11 flex flex-col">
@@ -29,7 +29,7 @@ export default {
     data() {
         return {
             course: null,
-            complexity: null,
+            complexity: null
         }
     },
     computed: {

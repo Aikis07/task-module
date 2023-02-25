@@ -13,7 +13,7 @@
                         <h2 class="header__text text-4xl">Тренажер задач</h2>
                         <p class="header__label bg-blue-700 py-2 px-3 rounded-xl ml-5">Spotlight</p>
                     </div>
-                    <close-cross v-if="isMinimal === false" @click="onClickMiniMode()" class="close cursor-pointer" />
+                    <close-cross v-if="isMinimal === false" @click="isMinimal = true" class="close cursor-pointer" />
                 </div>
             </transition>
             <div class="main flex flex-col py-12 px-9">
@@ -100,8 +100,6 @@ export default {
     },
     data() {
         return {
-            selectedCours: null,
-            selectedComplexity: null,
             isMinimal: false,
             complexitys: [
                 {
@@ -148,11 +146,9 @@ export default {
             this.$emit('selectedComplexity', complexity)
         },
         onClickResetCourses() {
-            this.selectedCours = null
             this.$emit('resetCourses', null)
         },
         onCLickResetComplexitys() {
-            this.selectedComplexity = null
             this.$emit('resetComplexitys', null)
         }
     },
