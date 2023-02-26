@@ -9,18 +9,12 @@
 </template>
 
 <script>
-import BaseModal from "@/components/Home/BaseModal.vue";
 import { mapState, mapMutations } from "vuex";
-
+import HintModal from "@/components/Modals/HintModal.vue";
 
 export default {
   components: {
-    BaseModal,
-  },
-  data() {
-    return {
-
-    };
+    HintModal,
   },
   methods: {
     ...mapMutations({ closeModal: 'modals/removeModal' })

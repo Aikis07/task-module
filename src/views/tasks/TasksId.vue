@@ -4,7 +4,15 @@
             <arrow-left @click="$router.push({ name: 'home' })" class="header__btn cursor-pointer" />
             <h2 class="header__title ml-5 text-2xl">{{ getTask.name }}</h2>
         </div>
-        <task-field :getTask="getTask" />
+        <div class="textarea mt-6 flex gap-6">
+            <CodeEditor width="100%" height="542px" v-model="code" border_radius="12px" />
+            <div class="textarea-result bg-light-grey p-5 w-647 rounded-lg">
+                Тест
+                <div class="textarea-result__body py-11">
+                    {{ result }}
+                </div>
+            </div>
+        </div>
         <div class="description mt-9">
             <h2 class="description__title text-3xl">Задача</h2>
             <p class="description__subtitle text-lg max-w-3xl mt-4">Мы вынуждены отталкиваться от того, что
@@ -13,8 +21,8 @@
         </div>
         <div class="actions flex justify-between mt-20">
             <div class="actions__left flex gap-3">
-                <base-button size="md" rounded="lg" theme="success">Проверить</base-button>
-                <base-button @click="showModal(modalData)" size="md" rounded="lg" theme="primary">Посмотреть
+                <base-button @click="testCode" size="md" rounded="lg" theme="success">Проверить</base-button>
+                <base-button @click="setHintModal" size="md" rounded="lg" theme="primary">Посмотреть
                     решение</base-button>
             </div>
             <base-button size="md" rounded="lg" theme="primary">Сохранить и выйти</base-button>
@@ -26,24 +34,38 @@
 import { mapState, mapMutations } from 'vuex';
 import arrowLeft from '@/assets/img/arrow-left.svg'
 import BaseButton from '@/components/UI/BaseButton.vue'
-import TaskField from '@/components/Home/TaskField.vue'
+import CodeEditor from 'simple-code-editor';
+
+import {useConvertBuffer} from "@/utils/convertArrayBuffer";
 
 export default {
     components: {
         arrowLeft,
         BaseButton,
-        TaskField,
+        CodeEditor
     },
     data() {
         return {
-            modalData: {
-                name: 'BaseModal',
-                data: 'Равным образом, перспективное планирование однозначно определяет каждого участника как способного принимать собственные решения касаемо как самодостаточных, так и внешне зависимых концептуальных решений. Разнообразный и богатый опыт говорит нам, что сложившаяся структура организации способствует повышению качества системы.',
-            }
+            code: '',
+            result: ''
         }
     },
     methods: {
-        ...mapMutations({ showModal: 'modals/setModal' }),
+        ...mapMutations({ setModal: 'modals/setModal' }),
+        async testCode() {
+
+            const req = await fetch('http://localhost:7000/training/compile', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code: this.code }),
+            });
+
+            const res = await req.json();
+            this.result = useConvertBuffer(res.data)
+        },
+        setHintModal() {
+            this.setModal({name: "HintModal", data: 'Посмотреть решение, может каждый, а вот решить...'})
+        }
     },
     mounted() {
         this.code = `// ${this.getTask.description}`
