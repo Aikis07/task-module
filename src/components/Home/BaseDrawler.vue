@@ -165,7 +165,7 @@ export default {
         },
         onCLickResetComplexitys() {
             this.$emit('resetComplexitys', null)
-        }
+        },
     },
     computed: {
         ...mapState(['courses']),
@@ -181,39 +181,5 @@ export default {
 .fade-enter,
 .fade-leave-active {
     opacity: 0;
-}
-
-@keyframes move-left {
-    from {
-        transform: translateX(100%);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateX(0%);
-        opacity: 0;
-        
-    }
-}
-
-@keyframes move-right {
-    from {
-        transform: translateX(0%);
-        opacity: 0;
-        
-    }
-
-    to {
-        transform: translateX(100%);
-        opacity: 1;
-    }
-}
-
-.move-enter-active {
-    animation: move-left .7s ease-in-out;
-}
-
-.move-leave-active {
-    animation: move-right .7s ease-in-out;
 }
 </style>
