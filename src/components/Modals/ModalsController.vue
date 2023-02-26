@@ -7,18 +7,12 @@
 </template>
 
 <script>
-import BaseModal from "@/components/Home/BaseModal.vue";
+import HintModal from "@/components/Modals/HintModal.vue";
 import { mapState } from "vuex";
-
 
 export default {
   components: {
-    BaseModal,
-  },
-  data() {
-    return {
-
-    };
+    HintModal,
   },
   computed: {
     ...mapState({ activeModal: 'modals' }),
