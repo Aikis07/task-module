@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import modals from '@/store/modules/modals.js'
+import AuthService from '@/API/AuthService/AuthService.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    user: null,
     courses: [
       {
         id: 1,
@@ -93,8 +95,20 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    setUser(state, user) {
+      state.user = user
+    }
   },
   actions: {
+    async getUserToken({ commit }) {
+      const response = await AuthService.getUser()
+      if (response.status === 200) {
+        commit('setUser', response.data)
+      } else {
+        console.log(response.data)
+      }
+      return response
+    },
   },
   modules: {
     modals

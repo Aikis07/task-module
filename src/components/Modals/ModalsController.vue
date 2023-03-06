@@ -11,10 +11,12 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 import HintModal from "@/components/Modals/HintModal.vue";
+import RedirectModal from "./RedirectModal.vue";
 
 export default {
   components: {
     HintModal,
+    RedirectModal,
   },
   methods: {
     ...mapMutations({ closeModal: 'modals/removeModal' })
