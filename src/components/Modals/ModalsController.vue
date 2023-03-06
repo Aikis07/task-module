@@ -2,7 +2,7 @@
   <div v-if="activeModal.modal !== null"
     class="wrapper z-10 text-white bg-black/[.5] top-0 left-0 w-screen h-screen absolute">
     <transition name="slide-fade">
-      <component class="wrapper__modal absolute top-1/2 left-1/2 -translate-x-50% -translate-y-50%"
+      <component v-if="activeModal.modal !== null" class="wrapper__modal absolute top-1/2 left-1/2 -translate-x-50% -translate-y-50%"
         :is="getActuallyModalName" />
     </transition>
   </div>
