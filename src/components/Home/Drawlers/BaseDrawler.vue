@@ -1,15 +1,19 @@
 <template>
     <div class="left">
         <transition name="slide-fade">
-            <div v-if="isMinimal === false" key="full" :class="[['wrapper', 'bg-light-grey', 'text-white', 'py-9'], isMinimal ? ['w-145'] : ['w-647']]">
+            <div v-if="isMinimal === false" key="full"
+                :class="[['wrapper', 'bg-light-grey', 'text-white', 'py-9'], isMinimal ? ['w-145'] : ['w-647']]">
                 <transition name="fade" mode="out-in">
-                    <div v-if="isMinimal" class="header flex items-center justify-center border-b pb-9 border-zinc-800 px-9">
-                        <div @click="isMinimal = false" class="header__wrapper flex justify-center items-center cursor-pointer">
+                    <div v-if="isMinimal"
+                        class="header flex items-center justify-center border-b pb-9 border-zinc-800 px-9">
+                        <div @click="isMinimal = false"
+                            class="header__wrapper flex justify-center items-center cursor-pointer">
                             <h2 class="header__text text-4xl">Т</h2>
                             <p class="header__label bg-blue-700 py-1 px-3 rounded-xl ml-2">S</p>
                         </div>
                     </div>
-                    <div v-else key="full" class="header flex items-center justify-between border-b pb-9 border-zinc-800 px-9">
+                    <div v-else key="full"
+                        class="header flex items-center justify-between border-b pb-9 border-zinc-800 px-9">
                         <div class="header__wrapper flex items-center cursor-pointer">
                             <h2 class="header__text text-4xl">Тренажер задач</h2>
                             <p class="header__label bg-blue-700 py-2 px-3 rounded-xl ml-5">Spotlight</p>
@@ -28,14 +32,16 @@
                                     :class="{ 'outline outline-1 outline-orange-300 rounded-2xl': selectedCourse === course.event }"
                                     class="coureses__item bg-zinc-800 rounded-2xl cursor-pointer flex justify-center items-center h-20 w-20">
                                     <h2 class="coureses__title py-6 text-lg opacity-30 break-words"
-                                        :class="{ 'opacity-100': selectedCourse === course.event }">{{ course.language }}</h2>
+                                        :class="{ 'opacity-100': selectedCourse === course.event }">{{ course.language }}
+                                    </h2>
                                 </div>
                             </div>
                         </div>
                         <div v-else key="full" class="courses flex flex-col gap-4">
                             <div class="courses__header flex items-center justify-between">
                                 <h2 class="courses__title text-2xl">Выберите курс</h2>
-                                <p @click="onClickResetCourses" class="courses__reset opacity-20 cursor-pointer">сбросить всё
+                                <p @click="onClickResetCourses" class="courses__reset opacity-20 cursor-pointer">сбросить
+                                    всё
                                 </p>
                             </div>
                             <div v-for="course in courses" :key="course.id" class="courses__list flex flex-col">
@@ -79,7 +85,8 @@
                                             <base-rating :isMinimal="isMinimal" :event="type.event" />
                                         </div>
                                         <h2 class="complexity__title text-lg opacity-30 ml-5"
-                                            :class="{ 'opacity-100': selectedComplexity === type.event }">{{ type.title }}</h2>
+                                            :class="{ 'opacity-100': selectedComplexity === type.event }">{{ type.title }}
+                                        </h2>
                                     </div>
                                 </div>
                             </div>
@@ -95,15 +102,19 @@
             </div>
         </transition>
         <transition name="slide-fade">
-            <div v-if="isMinimal" key="mini" :class="[['wrapper', 'bg-light-grey', 'text-white', 'py-9'], isMinimal ? ['w-145'] : ['w-647']]">
+            <div v-if="isMinimal" key="mini"
+                :class="[['wrapper', 'bg-light-grey', 'text-white', 'py-9'], isMinimal ? ['w-145'] : ['w-647']]">
                 <transition name="fade" mode="out-in">
-                    <div v-if="isMinimal" class="header flex items-center justify-center border-b pb-9 border-zinc-800 px-9">
-                        <div @click="isMinimal = false" class="header__wrapper flex justify-center items-center cursor-pointer">
+                    <div v-if="isMinimal"
+                        class="header flex items-center justify-center border-b pb-9 border-zinc-800 px-9">
+                        <div @click="isMinimal = false"
+                            class="header__wrapper flex justify-center items-center cursor-pointer">
                             <h2 class="header__text text-4xl">Т</h2>
                             <p class="header__label bg-blue-700 py-1 px-3 rounded-xl ml-2">S</p>
                         </div>
                     </div>
-                    <div v-else key="full" class="header flex items-center justify-between border-b pb-9 border-zinc-800 px-9">
+                    <div v-else key="full"
+                        class="header flex items-center justify-between border-b pb-9 border-zinc-800 px-9">
                         <div class="header__wrapper flex items-center cursor-pointer">
                             <h2 class="header__text text-4xl">Тренажер задач</h2>
                             <p class="header__label bg-blue-700 py-2 px-3 rounded-xl ml-5">Spotlight</p>
@@ -122,14 +133,16 @@
                                     :class="{ 'outline outline-1 outline-orange-300 rounded-2xl': selectedCourse === course.event }"
                                     class="coureses__item bg-zinc-800 rounded-2xl cursor-pointer flex justify-center items-center h-20 w-20">
                                     <h2 class="coureses__title py-6 text-lg opacity-30 break-words"
-                                        :class="{ 'opacity-100': selectedCourse === course.event }">{{ course.language }}</h2>
+                                        :class="{ 'opacity-100': selectedCourse === course.event }">{{ course.language }}
+                                    </h2>
                                 </div>
                             </div>
                         </div>
                         <div v-else key="full" class="courses flex flex-col gap-4">
                             <div class="courses__header flex items-center justify-between">
                                 <h2 class="courses__title text-2xl">Выберите курс</h2>
-                                <p @click="onClickResetCourses" class="courses__reset opacity-20 cursor-pointer">сбросить всё
+                                <p @click="onClickResetCourses" class="courses__reset opacity-20 cursor-pointer">сбросить
+                                    всё
                                 </p>
                             </div>
                             <div v-for="course in courses" :key="course.id" class="courses__list flex flex-col">
@@ -173,7 +186,8 @@
                                             <base-rating :isMinimal="isMinimal" :event="type.event" />
                                         </div>
                                         <h2 class="complexity__title text-lg opacity-30 ml-5"
-                                            :class="{ 'opacity-100': selectedComplexity === type.event }">{{ type.title }}</h2>
+                                            :class="{ 'opacity-100': selectedComplexity === type.event }">{{ type.title }}
+                                        </h2>
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +208,6 @@
 <script>
 import CloseCross from '@/assets/img/close-cross.svg';
 import BaseRating from '@/components/General/BaseRating.vue';
-import { mapState } from 'vuex';
 
 export default {
     props: {
@@ -203,6 +216,12 @@ export default {
         },
         selectedComplexity: {
             type: String,
+        },
+        courses: {
+            type: Array,
+        },
+        complexitys: {
+            type: Array,
         }
     },
     components: {
@@ -212,38 +231,6 @@ export default {
     data() {
         return {
             isMinimal: false,
-            complexitys: [
-                {
-                    id: 1,
-                    title: 'Базовые',
-                    starsCount: 1,
-                    event: 'basic',
-                },
-                {
-                    id: 2,
-                    title: 'Легкие',
-                    starsCount: 2,
-                    event: 'basic+',
-                },
-                {
-                    id: 3,
-                    title: 'Средние',
-                    starsCount: 3,
-                    event: 'middle',
-                },
-                {
-                    id: 4,
-                    title: 'Повышенная сложность',
-                    starsCount: 4,
-                    event: 'advanced',
-                },
-                {
-                    id: 5,
-                    title: 'Задания для экспертов',
-                    starsCount: 5,
-                    event: 'expert',
-                },
-            ]
         }
     },
     methods: {
@@ -263,22 +250,22 @@ export default {
             this.$emit('resetComplexitys', null)
         },
     },
-    computed: {
-        ...mapState(['courses']),
-    },
 }
 </script>
 
-<style lang="scss" scoped>
-.slide-fade-enter-active {
+<style lang="scss" scoped>.slide-fade-enter-active {
     transition: all .3s ease;
-  }
-  .slide-fade-leave-active {
+}
+
+.slide-fade-leave-active {
     transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  }
-  .slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active до версии 2.1.8 */ {
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to
+
+/* .slide-fade-leave-active до версии 2.1.8 */
+    {
     transform: translateX(-100%);
     opacity: 0;
-  }
-</style>
+}</style>
