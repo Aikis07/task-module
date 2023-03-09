@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="slide">
-      <div key="full" class="complexity flex flex-col p-5">
+      <div class="complexity flex flex-col p-5">
         <div class="complexity__header flex items-center justify-between">
           <h2 class="complexity__title text-sm">Выберите сложность</h2>
           <p @click="onCLickResetComplexitys" class="complexity__reset opacity-20 cursor-pointer">

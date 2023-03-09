@@ -9,10 +9,10 @@
                 <close-cross @click="closeModal" class="solution__close cursor-pointer" />
             </div>
             <h2 class="solution__info opacity-50 mt-7">{{getData.modal.data}}</h2>
-            <div class="solution__actions flex flex-col mt-7 gap-5 items-center">
-                <base-button @click="closeModal" size="lg" rounded="lg" theme="primary" outline>Ок,
+            <div class="solution__actions flex flex-col mt-7 gap-5 w-full">
+                <base-button @click="closeModal" :size="$mq === 'lg' ? 'lg' : 'fu'" rounded="lg" theme="primary" outline>Ок,
                     ясно</base-button>
-                <p class="solution__error cursor-pointer opacity-30">Нашли ошибку?</p>
+                <p class="solution__error cursor-pointer opacity-30 text-center">Нашли ошибку?</p>
             </div>
         </div>
     </div>

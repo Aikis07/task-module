@@ -1,5 +1,5 @@
 <template>
-    <div class="main bg-bg-main p-6 lg:p-9 text-white relative flex flex-col">
+    <div class="main bg-main p-6 lg:p-9 text-white flex flex-col h-full lg:h-screen">
         <div class="header flex items-center">
             <arrow-left @click="$router.push({ name: 'home' })" class="header__btn cursor-pointer" />
             <h2 class="header__title ml-5 text-sm lg:text-2xl">{{ getTask.name }}</h2>
@@ -19,21 +19,13 @@
                 {{ getTask.description }}
             </p>
         </div>
-        <div v-if="$mq === 'lg'" class="actions flex flex-col lg:flex-row gap-3 lg:justify-between items-center mt-20">
-            <div class="actions__left flex flex-col lg:flex-row gap-3 items-center">
-                <base-button @click="testCode" size="md" rounded="lg" theme="success">Проверить</base-button>
-                <base-button @click="setHintModal" size="md" rounded="lg" theme="primary">Посмотреть
+        <div class="actions flex flex-col lg:flex-row gap-3 lg:justify-between mt-10 lg:mt-20">
+            <div class="actions__left flex flex-col lg:flex-row gap-3">
+                <base-button @click="testCode" :size="mobileSize" rounded="lg" theme="success">Проверить</base-button>
+                <base-button @click="setHintModal" :size="mobileSize" rounded="lg" theme="primary">Посмотреть
                     решение</base-button>
             </div>
-            <base-button size="md" rounded="lg" theme="primary">Сохранить и выйти</base-button>
-        </div>
-        <div v-else class="actions flex flex-col lg:flex-row gap-3 lg:justify-between items-center mt-20">
-            <div class="actions__left flex flex-col lg:flex-row gap-3 items-center">
-                <base-button @click="testCode" size="sm" rounded="lg" theme="success">Проверить</base-button>
-                <base-button @click="setHintModal" size="sm" rounded="lg" theme="primary">Посмотреть
-                    решение</base-button>
-            </div>
-            <base-button size="sm" rounded="lg" theme="primary">Сохранить и выйти</base-button>
+            <base-button :size="mobileSize" rounded="lg" theme="primary">Сохранить и выйти</base-button>
         </div>
     </div>
 </template>
@@ -79,6 +71,12 @@ export default {
         this.code = `// ${this.getTask.description}`
     },
     computed: {
+        mobileSize() {
+            if (this.$mq === 'lg') {
+                return 'md'
+            }
+            return 'fu'
+        },
         ...mapState(['tasks']),
         getTask() {
             return this.tasks.find(f => f.id === +this.$route.params.task)

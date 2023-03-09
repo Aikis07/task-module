@@ -43,14 +43,16 @@ export default {
     },
     getWrappedSizes() {
       switch (this.size) {
+        case "xs":
+          return "py-2 px-3 font-semibold text-xs whitespace-nowrap"
         case "sm":
           return "py-2 px-4 font-semibold text-sm";
         case "md":
           return "py-3 px-6 text-md font-semibold text-base";
         case "lg":
           return "py-4 px-5 text-md font-semibold font-bold";
-        case "full":
-          return "w-full py-3 text-md font-semibold text-base";
+        case "fu":
+          return "py-3 text-sm font-semibold text-base whitespace-nowrap";
         default:
           return "py-2 px-4 font-semibold text-sm";
       }
@@ -93,7 +95,6 @@ export default {
 .btn {
   cursor: pointer;
   border: 1px solid transparent;
-  width: fit-content;
   outline: none;
 
   &-outline {
