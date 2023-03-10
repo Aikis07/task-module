@@ -22,16 +22,16 @@ export default {
   },
   methods: {
     ...mapMutations({ setModal: 'modals/setModal' }),
-    hasUser(statusCode) {
-      if (statusCode !== 200) {
-        this.setModal({ name: "RedirectModal", data: 'Вы будете перенаправлены на главную страницу через 5 секунд' })
-      }
-    },
+    // hasUser(statusCode) {
+    //   if (statusCode !== 200) {
+    //     this.setModal({ name: "RedirectModal", data: 'Вы будете перенаправлены на главную страницу через 5 секунд' })
+    //   }
+    // },
   },
   async created() {
     document.cookie = 'user=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbmV4eUBtYWlsLnJ1IiwiaWQiOjEsImlhdCI6MTY3ODEyMzkyMywiZXhwIjoxNjc4MjEwMzIzfQ.aAQqD5McoPHERIwkaTSMiUmEhG7VgnjdL8C12uKmqjQ'
-    const statusCode = await this.$store.dispatch('getUserToken')
-    this.hasUser(statusCode.status)
+    // const statusCode = await this.$store.dispatch('getUserToken')
+    // this.hasUser(statusCode.status)
   },
 };
 </script>

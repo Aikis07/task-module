@@ -1,6 +1,6 @@
 <template>
   <div class="main flex self-center">
-    <div class="solution bg-zinc-800 p-8 rounded-3xl w-96 self-center">
+    <div class="solution bg-zinc-800 p-6 rounded-3xl w-80 lg:w-96 self-center">
       <div class="solution__title flex items-center justify-between">
         <div class="solution__inner flex items-center gap-4">
           <h2 class="solution__name">Attension</h2>
@@ -12,19 +12,13 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex';
+import { mapState } from 'vuex';
 
 
 export default {
-  components: {
-
+  computed: {
+    ...mapState({ getData: 'modals' }),
   },
-  methods: {
-        ...mapMutations({closeModal: 'modals/removeModal'})
-    },
-    computed: {
-        ...mapState({getData: 'modals'}),
-    },
 }
 </script>
 

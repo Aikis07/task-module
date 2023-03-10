@@ -1,21 +1,17 @@
 <template>
     <div class="wrapper flex w-full relative">
-        <base-drawler v-if="$mq === 'lg'" :selectedComplexity="complexity" :selectedCourse="course"
-            @selectedLang="course = $event" @selectedComplexity="complexity = $event" @resetCourses="course = $event"
-            @resetComplexitys="complexity = $event" :courses="courses" :complexitys="complexitys" />
-        <div v-else class="inner">
-            <mobile-drawler v-if="isShowDrawler" :selectedComplexity="complexity" :selectedCourse="course"
-            @selectedLang="course = $event" @selectedComplexity="complexity = $event" @resetCourses="course = $event"
-            @resetComplexitys="complexity = $event" @closeDrawler="isShowDrawler = $event" :courses="courses"
-            :complexitys="complexitys"
-            class="mobile absolute top-0 left-0 w-screen h-screen z-10 text-white bg-light-grey" />
-        </div>
+        <component :is="$mq === 'lg' ? 'BaseDrawler' : 'MobileDrawler'" :selectedComplexity="complexity"
+            :selectedCourse="course" @selectedLang="course = $event" @selectedComplexity="complexity = $event"
+            @resetCourses="course = $event" @resetComplexitys="complexity = $event" :courses="courses"
+            :complexitys="complexitys" :isShowDrawler="isShowDrawler" @closeDrawler="isShowDrawler = $event"
+            :class="{ 'mobile absolute top-0 left-0 w-screen h-screen z-10 text-white bg-light-grey': $mq !== 'lg' }" />
         <div class="home h-screen right bg-bg-main w-full text-white">
             <div class="home__wrapper mx-6 lg:mx-16 my-11 flex flex-col">
                 <div class="home-header flex items-center justify-between">
                     <div class="inner flex items-center gap-4">
                         <h2 class="home-header__title text-base lg:text-2xl">Задания для выполнения</h2>
-                        <base-button :size="$mq === 'lg' ? 'sm' : 'xs'" rounded="full" theme="primary">Решенные задачи</base-button>
+                        <base-button :size="$mq === 'lg' ? 'sm' : 'xs'" rounded="full" theme="primary">Решенные
+                            задачи</base-button>
                     </div>
                     <burger v-show="$mq !== 'lg'" @click="isShowDrawler = true"
                         class="burger w-12 fill-white cursor-pointer ml-4" />
