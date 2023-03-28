@@ -1,7 +1,8 @@
 <template>
   <div id="app" class="bg-main h-full">
     <transition name="slide-fade" mode="out-in">
-      <router-view />
+      <preload-page v-if="loading"/>
+      <router-view v-else/>
     </transition>
     <modals-controller />
   </div>
@@ -9,13 +10,26 @@
 
 <script>
 import ModalsController from "@/components/Modals/ModalsController.vue"
+import PreloadPage from "@/views/PreloadPage.vue";
 
 export default {
   components: {
     ModalsController,
+    PreloadPage,
+  },
+  data() {
+    return {
+      errorMessage: null,
+      loading: true,
+    }
   },
   created() {
     document.cookie = 'user=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbmV4eUBtYWlsLnJ1IiwiaWQiOjEsImlhdCI6MTY3ODEyMzkyMywiZXhwIjoxNjc4MjEwMzIzfQ.aAQqD5McoPHERIwkaTSMiUmEhG7VgnjdL8C12uKmqjQ'
+  },
+  mounted () {
+    setTimeout(() => {
+      this.loading = false
+    }, 1500);
   },
 };
 </script>

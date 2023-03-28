@@ -8,7 +8,6 @@ import SsrCarousel from 'vue-ssr-carousel'
 import ssrCarouselCss from 'vue-ssr-carousel/index.css'
 Vue.component ('ssr-carousel', SsrCarousel)
 
-
 Vue.config.productionTip = false
 
 import VueMq from 'vue-mq'
@@ -21,10 +20,19 @@ Vue.use(VueMq, {
   }
 })
 
-new Vue({
+
+Vue.config.errorHandler = function(err, vm, info) {
+  console.error(err, vm, info);
+  router.push({ name: "error", params: { errorMessage: err.message } });
+};
+
+const app = new Vue({
   router,
   store,
   main,
   ssrCarouselCss,
-  render: h => h(App)
-}).$mount('#app')
+  render: h => h(App),
+})
+
+app.$mount('#app')
+
